@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 
 export default function SiteFooter() {
@@ -23,19 +24,20 @@ export default function SiteFooter() {
           <div className="footer-col">
             <h2 className="footer-heading">Services</h2>
             <ul className="footer-list">
-              <li><a href="#practice">Corporate, Commercial &amp; Contract Law</a></li>
-              <li><a href="#practice">Energy, Renewables &amp; Infrastructure</a></li>
-              <li><a href="#practice">Property, Construction &amp; Conveyancing</a></li>
-              <li><a href="#practice">Family &amp; Estates</a></li>
-              <li><a href="#practice">Data Protection &amp; Compliance</a></li>
-              <li><a href="#practice">AI Advisory</a></li>
+              <li><Link href="/#practice">Corporate, Commercial &amp; Contract Law</Link></li>
+              <li><Link href="/#practice">Energy, Renewables &amp; Infrastructure</Link></li>
+              <li><Link href="/#practice">Property, Construction &amp; Conveyancing</Link></li>
+              <li><Link href="/#practice">Family &amp; Estates</Link></li>
+              <li><Link href="/#practice">Data Protection &amp; Compliance</Link></li>
+              <li><Link href="/#practice">AI Advisory</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h2 className="footer-heading">Resources</h2>
               <ul className="footer-list">
-                <li><a href="#firm">The Firm</a></li>
-                <li><a href="#practice">Practice Areas</a></li>
+                <li><Link href="/#firm">The Firm</Link></li>
+                <li><Link href="/#practice">Practice Areas</Link></li>
+                <li><Link href="/blog">The Stable</Link></li>
               </ul>
           </div>
           <div className="footer-col footer-social">

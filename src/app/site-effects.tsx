@@ -66,19 +66,6 @@ export default function SiteEffects() {
     window.addEventListener('scroll', onScroll, { passive: true, signal });
     window.addEventListener('resize', onScroll, { signal });
 
-    // The wordmark returns to the very top of the page.
-    document.querySelectorAll('a[href="#home"]').forEach((link) =>
-      link.addEventListener(
-        'click',
-        (event) => {
-          event.preventDefault();
-          window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
-          history.pushState(null, '', '#home');
-        },
-        { signal },
-      ),
-    );
-
     onScroll();
 
     return () => {
