@@ -2,9 +2,12 @@ import About from './about';
 import CityBand from './city-band';
 import Hero from './hero';
 import HelpIndex from './help-index';
+import LatestPosts from './latest-posts';
 import SiteEffects from './site-effects';
 import SiteFooter from './site-footer';
 import SiteHeader from './site-header';
+
+export const revalidate = 60;
 
 export default function Home() {
   return (
@@ -19,6 +22,7 @@ export default function Home() {
           <HelpIndex />
           <CityBand />
           <About />
+          <LatestPosts />
         </section>
       </main>
       <SiteFooter />
