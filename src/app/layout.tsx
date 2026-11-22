@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/a11y';
 import './globals.css';
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/lib/site';
 
 const garamond = EB_Garamond({
   subsets: ['latin'],
@@ -20,7 +20,23 @@ export const metadata: Metadata = {
     'Olu Bashorun & Co advises businesses, individuals and families on corporate, energy, property, family, data protection and AI matters from Lekki, Lagos.',
   themeColor: '#1a2440',
   alternates: { types: { 'application/rss+xml': '/blog/rss.xml' } },
-  openGraph: { type: 'website', siteName: SITE_NAME, locale: 'en_NG', images: [{ url: '/images/lagos-island-1280.jpg' }] },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_NG',
+    title: 'Olu Bashorun & Co | Law Firm in Lekki, Lagos',
+    description:
+      'Olu Bashorun & Co advises businesses, individuals and families on corporate, energy, property, family, data protection and AI matters from Lekki, Lagos.',
+    url: '/',
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Olu Bashorun & Co | Law Firm in Lekki, Lagos',
+    description:
+      'Olu Bashorun & Co advises businesses, individuals and families on corporate, energy, property, family, data protection and AI matters from Lekki, Lagos.',
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 // Turn on the scroll-reveal styles before first paint (skipped for reduced motion).

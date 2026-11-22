@@ -23,19 +23,30 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPublishedBySlug(params.slug);
   if (!post) return { title: 'Article not found' };
+  const image = {
+    url: `/blog/og/${post.slug}?v=${post.updatedAt.getTime()}`,
+    width: 1200,
+    height: 630,
+    alt: post.coverAlt || post.title,
+  };
   return {
     title: post.title,
     description: post.summary,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: 'article',
+      siteName: SITE_NAME,
+      locale: 'en_NG',
       title: post.title,
       description: post.summary,
       url: `/blog/${post.slug}`,
       publishedTime: post.publishedAt?.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
       authors: [post.authorName],
-      ...(post.coverUrl ? { images: [{ url: post.coverUrl }] } : {}),
+      section: post.topic,
+      images: [image],
     },
+    twitter: { card: 'summary_large_image', title: post.title, description: post.summary, images: [image.url] },
   };
 }
 
@@ -55,7 +66,7 @@ export default async function ArticlePage({ params }: Props) {
     author: { '@type': 'Organization', name: post.authorName },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
-    ...(post.coverUrl ? { image: post.coverUrl.startsWith('/') ? SITE_URL + post.coverUrl : post.coverUrl } : {}),
+    image: `${SITE_URL}/blog/og/${post.slug}?v=${post.updatedAt.getTime()}`,
   };
 
   return (

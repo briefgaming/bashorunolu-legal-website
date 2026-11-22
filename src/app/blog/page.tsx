@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { listPublished } from '@/lib/posts';
+import { DEFAULT_OG_IMAGE, SITE_NAME } from '@/lib/site';
 import BlogIndex from '../blog-index';
 import SiteEffects from '../site-effects';
 import SiteFooter from '../site-footer';
@@ -17,7 +18,16 @@ export const metadata: Metadata = {
   title: 'The Stable',
   description,
   alternates: { canonical: '/blog' },
-  openGraph: { title: 'The Stable | Olu Bashorun & Co', description, url: '/blog' },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_NG',
+    title: 'The Stable | Olu Bashorun & Co',
+    description,
+    url: '/blog',
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: { card: 'summary_large_image', title: 'The Stable | Olu Bashorun & Co', description, images: [DEFAULT_OG_IMAGE.url] },
 };
 
 export default async function BlogPage() {
