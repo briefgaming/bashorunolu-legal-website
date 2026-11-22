@@ -9,36 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.11.0",
-    "@heroicons/react": "^2.0.18",
-    "@react-google-maps/api": "^2.19.2",
-    "@types/google-map-react": "^2.1.9",
-    "autoprefixer": "10.4.15",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
-    "google-map-react": "^2.2.1",
-    "google-maps-react": "^2.0.6",
-    "headlessui": "^0.0.0",
-    "heroicons": "^2.0.18",
+    "gsap": "3.12.5",
+    "lucide-react": "0.468.0",
     "next": "^13.5.6",
-    "postcss": "8.4.29",
     "react": "18.2.0",
-    "react-calendly": "^4.3.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.11.0",
-    "react-is": "^18.2.0",
-    "sharp": "^0.32.5",
-    "styled-components": "^6.0.7",
-    "tailwindcss": "3.3.3",
+    "swiper": "11.2.10",
     "typescript": "5.2.2"
   },
   "devDependencies": {
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
-    "@types/styled-components": "^5.1.26",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "prettier": "^3.0.2"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
