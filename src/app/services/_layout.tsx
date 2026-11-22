@@ -7,12 +7,10 @@ import Link from "next/link";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/footer";
-import PostCard from "../components/Postcard";
 import Accordion from "../components/accordion";
 
 import Blog2 from "../../assets/Blog2.png";
 import Appointment from "@/assets/Appointment.png";
-import { IBlog, fetchBlogs } from "@/repository/blog";
 
 interface LayoutProps {
   headingText: string;
@@ -22,14 +20,6 @@ interface LayoutProps {
 
 const Layout = ({ backgroundImage, headingText, faqItems }: LayoutProps) => {
   const [currentFAQ, setCurrentFAQ] = React.useState<number>(0);
-  const [blogPosts, setBlogPosts] = React.useState<IBlog[] | null>(null);
-
-  React.useEffect(() => {
-    (async () => {
-      const res = await fetchBlogs();
-      setBlogPosts(res);
-    })();
-  }, []);
 
   return (
     <div className="relative">
@@ -62,24 +52,6 @@ const Layout = ({ backgroundImage, headingText, faqItems }: LayoutProps) => {
                 setOpen={() => setCurrentFAQ(index)}
               />
             ))}
-          </div>
-
-          <div className="flex flex-col px-16 py-8 gap-4 bg-white">
-            <h4 className="text-2xl font-semibold">Related Posts</h4>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {blogPosts?.map(((item, index) => (
-                <PostCard
-                  key={index}
-                  image={item.image}
-                  title={item.title}
-                  summary={item.summary}
-                  route={`/blog/${item.slug}`}
-                  dateCreated={item.createdAt}
-                />
-              )))}
-            </div>
-
           </div>
 
           <div id="footer">
