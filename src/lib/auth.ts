@@ -26,6 +26,8 @@ const secret = () => process.env.ADMIN_PASSWORD ?? '';
 export const MIN_PASSWORD_LENGTH = 8;
 export const adminConfigured = () => secret().length >= MIN_PASSWORD_LENGTH;
 /** Why sign-in is unavailable, without revealing anything about the password itself. */
+/** Length only, and only used while the password is too short to be accepted. */
+export const adminPasswordLength = () => secret().length;
 export const adminProblem = (): 'missing' | 'short' | null =>
   !secret() ? 'missing' : secret().length < MIN_PASSWORD_LENGTH ? 'short' : null;
 
