@@ -3,7 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LoginForm({ configured }: { configured: boolean }) {
+export default function LoginForm({ problem }: { problem: 'missing' | 'short' | null }) {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -32,10 +32,14 @@ export default function LoginForm({ configured }: { configured: boolean }) {
     }
   }
 
-  if (!configured) {
+  if (problem) {
     return (
       <div className="note error">
-        Admin sign-in has not been set up yet. Add an <code>ADMIN_PASSWORD</code> (at least 8 characters) to the site’s environment variables.
+        {problem === 'short' ? (
+          <>The admin password is shorter than 8 characters. Set a longer <code>ADMIN_PASSWORD</code> in the site’s environment variables and redeploy.</>
+        ) : (
+          <>Admin sign-in has not been set up yet. Add an <code>ADMIN_PASSWORD</code> (at least 8 characters) to the site’s environment variables and redeploy.</>
+        )}
       </div>
     );
   }

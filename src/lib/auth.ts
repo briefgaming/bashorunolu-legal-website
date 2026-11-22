@@ -23,7 +23,11 @@ function safeEqual(a: string, b: string): boolean {
 
 const secret = () => process.env.ADMIN_PASSWORD ?? '';
 
-export const adminConfigured = () => secret().length >= 8;
+export const MIN_PASSWORD_LENGTH = 8;
+export const adminConfigured = () => secret().length >= MIN_PASSWORD_LENGTH;
+/** Why sign-in is unavailable, without revealing anything about the password itself. */
+export const adminProblem = (): 'missing' | 'short' | null =>
+  !secret() ? 'missing' : secret().length < MIN_PASSWORD_LENGTH ? 'short' : null;
 
 export async function checkPassword(input: string): Promise<boolean> {
   if (!adminConfigured()) return false;
