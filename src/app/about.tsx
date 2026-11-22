@@ -12,7 +12,6 @@ export default function About() {
             <span className="tag mark">The firm</span>
             <h2 className="section-title">Know where you stand.</h2>
             <p>Whether you’re reviewing an agreement or working through a family matter, we start by understanding what you want to achieve. We explain your options, what each involves and what to consider before making a decision.</p>
-            <p>We meet clients remotely and by appointment in Lekki.</p>
             <a className="line-link" href="#contact">Get in touch <ArrowUpRight aria-hidden="true" /></a>
           </div>
         </div>
