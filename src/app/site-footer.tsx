@@ -10,14 +10,14 @@ export default function SiteFooter() {
             <h2 className="footer-title" id="contact-title">Let’s discuss your matter.</h2>
             <p>Email or call to arrange a consultation.</p>
           </div>
-          <a className="site-button gold" href="mailto:olu.bash.law@gmail.com?subject=Consultation%20enquiry">Request a consultation <ArrowUpRight aria-hidden="true" /></a>
+          <a className="site-button gold" href="mailto:contact@olubashorun.com?subject=Consultation%20enquiry">Request a consultation <ArrowUpRight aria-hidden="true" /></a>
         </div>
         <div className="footer-grid">
           <div className="footer-col">
             <h2 className="footer-heading">Contact</h2>
             <address className="footer-contact">
               <p><MapPin aria-hidden="true" /><span>Lekki, Eti-Osa<br />Lagos, Nigeria</span></p>
-              <p><Mail aria-hidden="true" /><a href="mailto:olu.bash.law@gmail.com">olu.bash.law@gmail.com</a></p>
+              <p><Mail aria-hidden="true" /><a href="mailto:contact@olubashorun.com">contact@olubashorun.com</a></p>
               <p><Phone aria-hidden="true" /><span><a href="tel:+2348025903012">+234 802 590 3012</a><br /><a href="tel:+2347042871925">+234 704 287 1925</a></span></p>
             </address>
           </div>
