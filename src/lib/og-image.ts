@@ -1,6 +1,5 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import sharp from 'sharp';
 import { getImage, mediaIdFromUrl } from './posts';
 import { SITE_URL } from './site';
 
@@ -44,6 +43,8 @@ export async function loadCoverSource(coverUrl: string | null): Promise<Buffer |
 
 /** Crops to 1200x630 around the most interesting part and compresses until it is small. */
 export async function renderShareImage(source: Buffer): Promise<Buffer> {
+  // Loaded on demand so that a problem with the native library can never take the route down.
+  const { default: sharp } = await import('sharp');
   const base = sharp(source, { failOn: 'none' })
     .rotate()
     .resize(OG_WIDTH, OG_HEIGHT, { fit: 'cover', position: sharp.strategy.attention })

@@ -1,4 +1,4 @@
-import { cache } from 'react';
+import * as React from 'react';
 import { db, hasDatabase } from './db';
 import { formatDate, minutesFromChars } from './format';
 
@@ -58,6 +58,10 @@ type Row = {
   updated_at: Date;
 };
 type CardRow = Omit<Row, 'body' | 'author_role' | 'status' | 'created_at' | 'updated_at'> & { body_len: number };
+
+type Memo = <A extends unknown[], R>(fn: (...args: A) => R) => (...args: A) => R;
+/** De-duplicates repeated lookups within one page render; a plain pass-through outside the App Router. */
+const cache: Memo = (React as unknown as { cache?: Memo }).cache ?? ((fn) => fn);
 
 export class SlugTakenError extends Error {
   constructor() {

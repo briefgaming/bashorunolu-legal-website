@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPublishedBySlug(params.slug);
   if (!post) return { title: 'Article not found' };
   const image = {
-    url: `/blog/og/${post.slug}?v=${post.updatedAt.getTime()}`,
+    url: `/api/og/${post.slug}?v=${post.updatedAt.getTime()}`,
     width: 1200,
     height: 630,
     alt: post.coverAlt || post.title,
@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: Props) {
     author: { '@type': 'Organization', name: post.authorName },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
-    image: `${SITE_URL}/blog/og/${post.slug}?v=${post.updatedAt.getTime()}`,
+    image: `${SITE_URL}/api/og/${post.slug}?v=${post.updatedAt.getTime()}`,
   };
 
   return (
